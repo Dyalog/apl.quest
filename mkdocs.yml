@@ -1,0 +1,46 @@
+site_name: APL Quest
+repo_url: https://github.com/dyalog/apl.quest
+repo_name: Dyalog/apl.quest
+dev_addr: 127.0.0.1:22361
+copyright: <div class="left">Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener"><strong>Material for MkDocs</strong></a>.&nbsp;</div><div class="right">Contents copyright &copy;2015-2025 <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Ltd</a></strong></div>
+
+theme:
+  favicon: 'img/favicon.png'
+  logo: 'img/logo.svg'
+  features:
+    - navigation.sections
+    - navigation.instant
+    - content.footnote.tooltips
+    - navigation.path
+    - navigation.indexes
+  name: material
+
+extra:
+  generator: false
+  version:
+    provider: mike
+
+extra_css:
+  - css/main.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - toc:
+      title: On this page
+
+nav:
+    - Home: 'index.md'
+    - Help: 'help.md'
+    - 2013: '2013.md'
+    - 2014: '2014.md'
+    - 2015: '2015.md'
+    - 2016: '2016.md'
+    - 2017: '2017.md'
+    - 2018: '2018.md'
+    - 2019: '2019.md'
+    - 2020: '2020.md'
+    - 2021: '2021.md'
+    - 2022: '2022.md'
+    - 2023: '2023.md'
