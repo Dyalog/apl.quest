@@ -1,8 +1,7 @@
 
 $=s=>document.querySelector(s);
 let res 
-function run(expr, id)
-{
+function run(expr, id) {
 	let socket = new WebSocket("wss://dyalog.run/api/v0/ws/execute");
 	socket.onopen = () => socket.send(MessagePack.encode({
     language: "dyalog_apl",
@@ -24,11 +23,11 @@ function run(expr, id)
 }
 
 async function submitSolution(id) {  
-  let inp = $('#'+id+"_Input")
+  let inp = $("#" + id + "_Input")
   let code = inp.value;
   inp.parentElement.querySelector("button").disabled = true;
   if (code.length) {
-    let problem = {"P0": testCases[id]};
+    let problem = {"P0": testCases};
     var expr = tns + "\n" + importTestNS + "\n" + "p← ⎕JSON'" + JSON.stringify(problem).split("'").join("''") + "'\n" + "⎕←(p Test.Run)1'" + code.split("'").join("''") +  "'";
 
     run(expr, id);

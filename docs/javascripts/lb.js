@@ -28,7 +28,7 @@ let lbh='';for(let i=0;i<lbs.length;i++){
   lbh+='<b title="'+he(lbs[i].slice(1)+(ks.length?'\n'+ks.join(''):''))+'">'+lbs[i][0]+'</b>'
 }
 let d=document,el=d.createElement('div');el.innerHTML=`<div class=ngn_lb>${lbh}</div>`
-d.body.appendChild(el)
+$$`.md-header`[0].appendChild(el)
 let t,ts=[],lb=el.firstChild,bqm=0 //t:textarea or input, lb:language bar, bqm:backquote mode
 let pd=x=>x.preventDefault()
 let ev=(x,t,f,c)=>x.addEventListener(t,f,c)
@@ -58,7 +58,7 @@ let ff=x=>{
   if(nn!=='textarea'&&(nn!=='input'||t0.type!=='text'&&t0.type!=='search'))return
   t=t0;if(!t.ngn){t.ngn=1;ts.push(t);ev(t,'keydown',fk)}
 }
-let upd=_=>{
+/*let upd=_=>{
   d.body.style.marginTop=lb.clientHeight+'px';
   d.body.style.height="calc(100vh - 8px - " + lb.clientHeight+'px)';
   $$(".content").forEach(fn=node=>{
@@ -80,6 +80,6 @@ let upd=_=>{
     }
   });
 }
-upd();ev(window,'resize',upd)
+upd();ev(window,'resize',upd)*/
 ev(d,'focus',ff,!0);let ae=d.activeElement;ae&&ff({type:'focus',target:ae})
 })();

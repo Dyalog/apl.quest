@@ -20,18 +20,26 @@
   font-family:SAX2;
   src:url("../assets/SAX2.ttf")
 }
+
 pre,
-code {
-  padding:0.3em 0.3em 0.3em 0.3em;
-  overflow:auto;
+code,
+.ngn_lb,
+.md-typeset code,
+#p_Input {
+  font-size: 1em;
   font-family:SAX2;
   -webkit-text-stroke:.05ex;
-  line-height:1em;
+  line-height:1.1em!important;
   white-space:pre;
-  z-index:1
+}
+
+pre,{
+  overflow: auto;
+  max-width: 100vw;
 }
 /* Custom colors */
-:root {
+body {
+    --md-text-font-family: Go;
 	--md-primary-fg-color: #2e3440;
 	--md-primary-fg-color--dark: #eceff4;
 	--md-default-bg-color: #eceff4;
@@ -48,4 +56,42 @@ code {
 
 .right {
 	float: right;
+}
+
+.md-sidebar--secondary {
+  display: none!important;
+}
+
+.md-content {
+    margin-right: 0;
+}
+
+.ngn_lb {
+  cursor:default;
+  font-size:0.8rem;
+  padding:1ex;
+  word-wrap:break-word;
+}
+.ngn_lb b {
+  cursor:pointer;
+  padding:0.125rem;
+  font-weight:normal;
+  border-radius:0.125rem
+}
+.ngn_lb b:hover,
+.ngn_bq .ngn_lb {
+  background-color:#81a1c1
+}
+
+.pdiv {
+    display: inline-flex
+}
+
+.pdiv code {
+    padding-top: 2ex;
+}
+
+#p_Input {
+    flex-grow: 1;
+    padding: 1ex;
 }
