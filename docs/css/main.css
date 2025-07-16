@@ -96,11 +96,16 @@ pre,{
     padding: 1ex;
 }
 
-.info a:first-child {
-    cursor: url(../../img/yt.png),pointer
-}
-
 .info div>img:last-child {
     margin-top: -100%;
     cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    aspect-ratio: 1920 / 1080;
+}
+
+.info p {
+    text-align: center;
 }

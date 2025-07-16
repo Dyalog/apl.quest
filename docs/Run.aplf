@@ -26,15 +26,15 @@
              '</div>'
              '<blockquote id="p_Output"></blockquote>'
              '??? info "Solutions"'
-             ⍝'    <iframe src="https://www.youtube.com/embed/',v,'" title="',name,'(APL Quest ',y,'-',i,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
              '    <div onclick="play(this)">'
              '        ![Video on YouTube](../../img/',y,'-',i,'.png)'
              '        ![Video on YouTube](../../img/yt-big.png)'
              '    </div>'
-             '    [Chat transcript](',chat,') ∙ [Code on GitHub](',code,')'
+             ''
+             '    [Chat transcript](',chat,')&emsp;∙&emsp;[Code on GitHub](',code,')'
              '<script>'
              '    testCases=',1 ⎕JSON t
-             '    play=e=>e.outerHTML=`<iframe src="https://www.youtube.com/embed/',v,'&autoplay=1" title="Seems a Bit Odd To Me (APL Quest 2013-1)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" width="1920" height="1080"></iframe>`'
+             '    play=e=>e.outerHTML=`<iframe src="https://www.youtube.com/embed/',('&.*'⎕R''⊢v),'" title="',name,' (APL Quest ',y,'-',i,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`'
              '    p_Input.focus()'
              '</script>'
          )
