@@ -15,7 +15,7 @@
          name←2↓⊃p/⍨'# '∘(⊃⍷)¨p
          n←⊃⊃⎕NINFO⍠1⊢dir,y,'/',i,'.*'
          p/⍨←~'<div id="P'∘(⊃⍷)¨p
-         p/⍨←~'# '∘(⊃⍷)¨p
+         ⍝ p/⍨←~'# '∘(⊃⍷)¨p
          p/⍨←~⌽<\⌽p≡¨⊂'</div>'
          p/⍨←~(∧\∨∘⌽∧\∘⌽)''∘≡¨p
          v←⊃'v=(.+)'⎕S'\1'⊢video
@@ -26,8 +26,8 @@
              '</div>'
              '<blockquote id="p_Output"></blockquote>'
              '??? info "Solutions"'
-             '    <iframe src="https://www.youtube.com/embed/',v,'" title="',name,'(APL Quest ',y,'-',i,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
-             ''
+             ⍝'    <iframe src="https://www.youtube.com/embed/',v,'" title="',name,'(APL Quest ',y,'-',i,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+             '    [![Video on YouTube](/img/',y,'-',i,'.png)](',video,')'
              '    [Chat transcript](',chat,') ∙ [Code on GitHub](',code,')'
              '<script>testCases=',(1 ⎕JSON t),'</script>'
              '<script>p_Input.focus()</script>'
