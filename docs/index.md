@@ -121,7 +121,7 @@ If you put each of the above three functions into the input field below and clic
 
 <div class="pdiv">
   <code>your_function ← </code><input id="p_Input" autocomplete="off" spellcheck="false" oninput="this.parentElement.querySelector`button`.disabled=false" onkeypress="subm(event)">
-  <button onclick="alert$.next`Testing…`;submitSolution`p`" class="md-button">&#x2714; Test</button>
+  <button onclick="alert$.next`Testing…`;submitSolution`p`" class="md-button md-button--primary">&#x2714; Test</button>
 </div>
 <blockquote id="p_Output"></blockquote>
 
@@ -129,5 +129,4 @@ Try entering `{+/,⍵∊'AEIOU'}` which handles all test cases.
 
 <script>
     testCases = {"a": ["'COOLAPL'","''","'NVWLSHR'","{⍵[?⍨≢⍵]}'AEIOU',⎕A[?26⍴⍨9+?16]"],"b": ["2 3⍴'APLYES'","⎕A[?26⍴⍨1+?2⍴⍨1+?2]","''⍴⍨¯1+?⍨3"],"f": "{+/,⍵∊'AEIOU'}","p": "{⊃⍣(1=≢,⍵)⊢⍵}"}
-    p_Input.focus()
 </script>

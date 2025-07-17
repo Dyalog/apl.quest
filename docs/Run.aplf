@@ -12,6 +12,7 @@
      ts←1⌽1↓⊃⌽tests ⎕VGET 9
      :For i p t u :InEach (⍕¨⍳10)src ts us
          (_ chat code video)←u
+         p←'^(# )(\d+: )'⎕R('\1<span class=s>',y,'-</span>\2')⊢p
          name←2↓⊃p/⍨'# '∘(⊃⍷)¨p
          n←⊃⊃⎕NINFO⍠1⊢dir,y,'/',i,'.*'
          p/⍨←~'<div id="P'∘(⊃⍷)¨p
@@ -21,20 +22,20 @@
          p,←(
              '<div class="pdiv">'
              '  <code>your_function ← </code><input id="p_Input" autocomplete="off" spellcheck="false" oninput="this.parentElement.querySelector`button`.disabled=false" onkeypress="subm(event)">'
-             '  <button onclick="alert$.next`Testing…`;submitSolution`p`" class="md-button">&#x2714; Test</button>'
+             '  <button onclick="alert$.next`Testing…`;submitSolution`p`" class="md-button md-button--primary">&#x2714; Test</button>'
              '</div>'
              '<blockquote id="p_Output"></blockquote>'
+             '## Solutions'
              '<div onclick="play(this)" title="Video on YouTube" class="yt">'
              '<img alt="Video Thumbnail" src="../../img/',y,'-',i,'.png">'
              '<img alt="YouTube" src="../../img/yt-big.png">'
              '</div>'
-             '<a href="',chat,'" target="_blank" class="md-button">Chat transcript</a>'
-             '<a href="',code,'" target="_blank" class="md-button right">Code on GitHub</a>'
+             '<a href="',chat,'" target="_blank" class="md-button md-button--primary">Chat transcript</a>'
+             '<a href="',code,'" target="_blank" class="md-button md-button--primary right">Code on GitHub</a>'
              ''
              '<script>'
              '    testCases=',1 ⎕JSON t
              '    play=e=>e.outerHTML=`<iframe src="https://www.youtube.com/embed/',('&'⎕R'?'⊢v),'&autoplay=1" title="',name,' (APL Quest ',y,'-',i,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`'
-             '    p_Input.focus()'
              '</script>'
          )
          p⊂⍛⎕NPUT dir,y,'/',i,'.md'
