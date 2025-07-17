@@ -28,8 +28,8 @@
              '<img alt="Video Thumbnail" src="../../img/',y,'-',i,'.png">'
              '<img alt="YouTube" src="../../img/yt-big.png">'
              '</div>'
-             '<a href="',chat,'" class="md-button">Chat transcript</a>'
-             '<a href="',code,'" class="md-button right">Code on GitHub</a>'
+             '<a href="',chat,'" target="_blank" class="md-button">Chat transcript</a>'
+             '<a href="',code,'" target="_blank" class="md-button right">Code on GitHub</a>'
              ''
              '<script>'
              '    testCases=',1 ⎕JSON t
