@@ -52,7 +52,7 @@ pre{
   --md-code-font: "SAX2";
 }
 
-:root > *, [data-md-color-scheme="light"] {
+:root > * , [data-md-color-scheme="light"] {
   color: #2e3440;
   --md-primary-fg-color: #4c566a;
   --md-default-bg-color: #eceff4;
