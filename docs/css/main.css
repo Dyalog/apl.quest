@@ -84,7 +84,8 @@ pre,{
 }
 
 .pdiv {
-    display: inline-flex
+    display: inline-flex;
+    width: 100%;
 }
 
 .pdiv code {
@@ -109,4 +110,9 @@ pre,{
 iframe {
     width: 100%;
     aspect-ratio: 1920 / 1080;
+}
+
+kbd {
+    font-family: unset;
+    font-weight: bold;
 }

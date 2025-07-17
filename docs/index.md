@@ -95,7 +95,7 @@ Write an APL function to count the number of vowels (A, E, I, O, U) in an array 
 
 💡 Hint: The membership function [`X∊Y`](http://help.dyalog.com/latest/#Language/Primitive%20Functions/Membership.htm) could be helpful for this problem.
 
-Examples
+### Examples:
 
 ```APL
       (your_function) 'COOLAPL'
@@ -106,7 +106,7 @@ Examples
 0
 ```
 
-Below are three sample solutions. All three produce the correct answer, but the first twofunctions would be ranked higher by the competition judging committee. This is becausethe first two demonstrate better use of array-oriented programming.
+Below are three sample solutions. All three produce the correct answer, but the first two functions would have been ranked higher by the competition judging committee. This is because the first two demonstrate better use of array-oriented programming.
 
 ```APL
       ({+/⍵∊'AEIOU'}) 'COOLAPL'   ⍝ good dfn
@@ -117,10 +117,16 @@ Below are three sample solutions. All three produce the correct answer, but the 
 3
 ```
 
-If you put each of the above three functions into the input field below and click Test, you'll see that they only pass the basic test cases. This is because none of those functions handle arrays with 2 or more dimensions. The system will also give you an example of a multi-dimensional edge case that failed, so that you can attempt to improve your solution.
+If you put each of the above three functions into the input field below and click <kbd>&#x2714; Test</kbd>, you'll see that they only pass the basic test cases. This is because none of those functions handle arrays with 2 or more dimensions. The system will also give you an example of a multi-dimensional edge case that failed, so that you can attempt to improve your solution.
+
+<div class="pdiv">
+  <code>your_function ← </code><input id="p_Input" autocomplete="off" spellcheck="false" oninput="this.parentElement.querySelector`button`.disabled=false" onkeypress="subm(event)">
+  <button onclick="alert$.next`Testing…`;submitSolution`p`" class="md-button">&#x2714; Test</button>
+</div>
+<blockquote id="p_Output"></blockquote>
 
 Try entering `{+/,⍵∊'AEIOU'}` which handles all test cases.
 
 <script>
-    testCases = {"P0_Sample_Problem": {"a": ["'COOLAPL'","''","'NVWLSHR'","{⍵[?⍨≢⍵]}'AEIOU',⎕A[?26⍴⍨9+?16]"],"b": ["2 3⍴'APLYES'","⎕A[?26⍴⍨1+?2⍴⍨1+?2]","''⍴⍨¯1+?⍨3"],"f": "{+/,⍵∊'AEIOU'}","p": "{⊃⍣(1=≢,⍵)⊢⍵}"}};
+    testCases = {"a": ["'COOLAPL'","''","'NVWLSHR'","{⍵[?⍨≢⍵]}'AEIOU',⎕A[?26⍴⍨9+?16]"],"b": ["2 3⍴'APLYES'","⎕A[?26⍴⍨1+?2⍴⍨1+?2]","''⍴⍨¯1+?⍨3"],"f": "{+/,⍵∊'AEIOU'}","p": "{⊃⍣(1=≢,⍵)⊢⍵}"}
 </script>
