@@ -33,3 +33,5 @@ async function submitSolution(id) {
     run(expr, id);
   }
 }
+
+subm=e=>e.keyCode==13?e.target.parentElement.querySelector`button`.click():0

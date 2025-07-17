@@ -15,26 +15,25 @@
          name←2↓⊃p/⍨'# '∘(⊃⍷)¨p
          n←⊃⊃⎕NINFO⍠1⊢dir,y,'/',i,'.*'
          p/⍨←~'<div id="P'∘(⊃⍷)¨p
-         ⍝ p/⍨←~'# '∘(⊃⍷)¨p
          p/⍨←~⌽<\⌽p≡¨⊂'</div>'
          p/⍨←~(∧\∨∘⌽∧\∘⌽)''∘≡¨p
          v←⊃'v=(.+)'⎕S'\1'⊢video
          p,←(
              '<div class="pdiv">'
-             '  <code>your_function ← </code><input id="p_Input" autocomplete="off" spellcheck="false">'
+             '  <code>your_function ← </code><input id="p_Input" autocomplete="off" spellcheck="false" oninput="this.parentElement.querySelector`button`.disabled=false" onkeypress="subm(event)">'
              '  <button onclick="alert$.next`Testing…`;submitSolution`p`" class="md-button">&#x2714; Test</button>'
              '</div>'
              '<blockquote id="p_Output"></blockquote>'
-             '??? info "Solutions"'
-             '    <div onclick="play(this)">'
-             '        ![Video on YouTube](../../img/',y,'-',i,'.png)'
-             '        ![Video on YouTube](../../img/yt-big.png)'
-             '    </div>'
+             '<div onclick="play(this)" title="Video on YouTube" class="yt">'
+             '<img alt="Video Thumbnail" src="../../img/',y,'-',i,'.png">'
+             '<img alt="YouTube" src="../../img/yt-big.png">'
+             '</div>'
+             '<a href="',chat,'" class="md-button">Chat transcript</a>'
+             '<a href="',code,'" class="md-button right">Code on GitHub</a>'
              ''
-             '    [Chat transcript](',chat,')&emsp;∙&emsp;[Code on GitHub](',code,')'
              '<script>'
              '    testCases=',1 ⎕JSON t
-             '    play=e=>e.outerHTML=`<iframe src="https://www.youtube.com/embed/',('&.*'⎕R''⊢v),'" title="',name,' (APL Quest ',y,'-',i,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`'
+             '    play=e=>e.outerHTML=`<iframe src="https://www.youtube.com/embed/',('&'⎕R'?'⊢v),'&autoplay=1" title="',name,' (APL Quest ',y,'-',i,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`'
              '    p_Input.focus()'
              '</script>'
          )
