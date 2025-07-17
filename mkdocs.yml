@@ -21,7 +21,7 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: light 
       primary: custom
-      accent: blue
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
