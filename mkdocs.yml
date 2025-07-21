@@ -1,0 +1,180 @@
+site_name: APL Quest
+repo_url: https://github.com/dyalog/apl.quest
+repo_name: Dyalog/apl.quest
+dev_addr: 127.0.0.1:22361
+copyright: <div class="left">Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener"><strong>Material for MkDocs</strong></a>&nbsp;</div><div class="right">Contents copyright &copy; 2013-2025 <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Ltd</a></strong></div>
+
+theme:
+  favicon: 'img/favicon.png'
+  logo: 'img/logo.svg'
+  features:
+    - navigation.instant
+    - navigation.footer
+  name: material
+  custom_dir: overrides
+  font: false
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: light 
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+extra_css:
+  - css/main.css
+
+extra_javascript:
+  - scripts/dyalog-run.js
+  - scripts/lb.js
+  - scripts/msgpack.min.js
+  - scripts/test.js
+  - scripts/matomo.js
+
+plugins:
+  - search
+
+markdown_extensions:
+    - admonition
+    - pymdownx.details
+    - meta
+    - toc:
+        toc_depth : "1-1"
+nav:
+    - Home: 'index.md'
+    - 2013:
+      - "<span class=s>2013-</span>1: Seems a Bit Odd To Me": "2013/1.md"
+      - "<span class=s>2013-</span>2: Making The Grade": "2013/2.md"
+      - "<span class=s>2013-</span>3: What Is In a Word": "2013/3.md"
+      - "<span class=s>2013-</span>4: Keeping Things In Balance": "2013/4.md"
+      - "<span class=s>2013-</span>5: Identity Crisis": "2013/5.md"
+      - "<span class=s>2013-</span>6: Home On The Range": "2013/6.md"
+      - "<span class=s>2013-</span>7: Float Your Boat": "2013/7.md"
+      - "<span class=s>2013-</span>8: Go Forth And Multiply": "2013/8.md"
+      - "<span class=s>2013-</span>9: It Is a Moving Experience": "2013/9.md"
+      - "<span class=s>2013-</span>10: Solution Salvation": "2013/10.md"
+    - 2014:
+      - "<span class=s>2014-</span>1: It Is All Right": "2014/1.md"
+      - "<span class=s>2014-</span>2: How Tweet It Is": "2014/2.md"
+      - "<span class=s>2014-</span>3: Tell a Fib": "2014/3.md"
+      - "<span class=s>2014-</span>4: Space The Final Frontier": "2014/4.md"
+      - "<span class=s>2014-</span>5: Mirror Mirror": "2014/5.md"
+      - "<span class=s>2014-</span>6: Roll The Dice": "2014/6.md"
+      - "<span class=s>2014-</span>7: Revolutionary Thinking": "2014/7.md"
+      - "<span class=s>2014-</span>8: Go The Distance": "2014/8.md"
+      - "<span class=s>2014-</span>9: Going Ballistic": "2014/9.md"
+      - "<span class=s>2014-</span>10: Sales Are Up": "2014/10.md"
+    - 2015:
+      - "<span class=s>2015-</span>1: Nag A Ram": "2015/1.md"
+      - "<span class=s>2015-</span>2: Longest Streak": "2015/2.md"
+      - "<span class=s>2015-</span>3: Farey Tale": "2015/3.md"
+      - "<span class=s>2015-</span>4: PDI - Progressive Dyadic Iota": "2015/4.md"
+      - "<span class=s>2015-</span>5: He\u0027s so mean, he has no standard deviation": "2015/5.md"
+      - "<span class=s>2015-</span>6: Hey! This is My Space": "2015/6.md"
+      - "<span class=s>2015-</span>7: Just in (Upper) Case": "2015/7.md"
+      - "<span class=s>2015-</span>8: Unlucky 13": "2015/8.md"
+      - "<span class=s>2015-</span>9: I\u0027d Like Mine Scrambled Please": "2015/9.md"
+      - "<span class=s>2015-</span>10: Blaise\u0027ing a Trail": "2015/10.md"
+    - 2016:
+      - "<span class=s>2016-</span>1: Statistics - Mean": "2016/1.md"
+      - "<span class=s>2016-</span>2: Statistics - Median": "2016/2.md"
+      - "<span class=s>2016-</span>3: Statistics - Mode": "2016/3.md"
+      - "<span class=s>2016-</span>4: Just Meshing Around": "2016/4.md"
+      - "<span class=s>2016-</span>5: You\u0027re Unique, Just Like Everyone Else": "2016/5.md"
+      - "<span class=s>2016-</span>6: Shorter Ones to the Front": "2016/6.md"
+      - "<span class=s>2016-</span>7: 3s and 5s": "2016/7.md"
+      - "<span class=s>2016-</span>8: Separating Out the Negative": "2016/8.md"
+      - "<span class=s>2016-</span>9: Delimited Text": "2016/9.md"
+      - "<span class=s>2016-</span>10: Order Total ": "2016/10.md"
+    - 2017:
+      - "<span class=s>2017-</span>1: What an Odd Bunch": "2017/1.md"
+      - "<span class=s>2017-</span>2: Good Evening": "2017/2.md"
+      - "<span class=s>2017-</span>3: Miss Quoted": "2017/3.md"
+      - "<span class=s>2017-</span>4: Slice(s) of Pie(s)": "2017/4.md"
+      - "<span class=s>2017-</span>5: DNA?": "2017/5.md"
+      - "<span class=s>2017-</span>6: k-mers": "2017/6.md"
+      - "<span class=s>2017-</span>7: Counting DNA Nucleotides": "2017/7.md"
+      - "<span class=s>2017-</span>8: Be the First 1": "2017/8.md"
+      - "<span class=s>2017-</span>9: Double Trouble": "2017/9.md"
+      - "<span class=s>2017-</span>10: Squaring Off": "2017/10.md"
+    - 2018:
+      - "<span class=s>2018-</span>1: Oh Say Can You See?": "2018/1.md"
+      - "<span class=s>2018-</span>2: Number Splitting": "2018/2.md"
+      - "<span class=s>2018-</span>3: Rolling Along": "2018/3.md"
+      - "<span class=s>2018-</span>4: What\u0027s Your Sign?": "2018/4.md"
+      - "<span class=s>2018-</span>5: What\u0027s Your Sign? Revisited": "2018/5.md"
+      - "<span class=s>2018-</span>6: What\u0027s Your Angle?": "2018/6.md"
+      - "<span class=s>2018-</span>7: Unconditionally Shifty": "2018/7.md"
+      - "<span class=s>2018-</span>8: Making a Good Argument": "2018/8.md"
+      - "<span class=s>2018-</span>9: Earlier, Later, or the Same?": "2018/9.md"
+      - "<span class=s>2018-</span>10: Anagrammatically Correct": "2018/10.md"
+    - 2019:
+      - "<span class=s>2019-</span>1: Chunky Monkey": "2019/1.md"
+      - "<span class=s>2019-</span>2: Making the Grade": "2019/2.md"
+      - "<span class=s>2019-</span>3: Grade Distribution": "2019/3.md"
+      - "<span class=s>2019-</span>4: Knight Moves": "2019/4.md"
+      - "<span class=s>2019-</span>5: Doubling Up": "2019/5.md"
+      - "<span class=s>2019-</span>6: Telephone Names": "2019/6.md"
+      - "<span class=s>2019-</span>7: In the Center of It All": "2019/7.md"
+      - "<span class=s>2019-</span>8: Going the Distance": "2019/8.md"
+      - "<span class=s>2019-</span>9: Area Code à la Gauss": "2019/9.md"
+      - "<span class=s>2019-</span>10: Odds & Evens": "2019/10.md"
+    - 2020:
+      - "<span class=s>2020-</span>1: Let\u0027s Split!": "2020/1.md"
+      - "<span class=s>2020-</span>2: Character Building": "2020/2.md"
+      - "<span class=s>2020-</span>3: Excel-lent Columns": "2020/3.md"
+      - "<span class=s>2020-</span>4: Take a Leap": "2020/4.md"
+      - "<span class=s>2020-</span>5: Stepping in the Proper Direction": "2020/5.md"
+      - "<span class=s>2020-</span>6: Move to the Front": "2020/6.md"
+      - "<span class=s>2020-</span>7: See You in a Bit": "2020/7.md"
+      - "<span class=s>2020-</span>8: Zigzag Numbers": "2020/8.md"
+      - "<span class=s>2020-</span>9: Rise and Fall": "2020/9.md"
+      - "<span class=s>2020-</span>10: Stacking It Up": "2020/10.md"
+    - 2021:
+      - "<span class=s>2021-</span>1: Are You a Bacteria?": "2021/1.md"
+      - "<span class=s>2021-</span>2: Index-Of Modified": "2021/2.md"
+      - "<span class=s>2021-</span>3: Multiplicity": "2021/3.md"
+      - "<span class=s>2021-</span>4: Square Peg, Round Hole": "2021/4.md"
+      - "<span class=s>2021-</span>5: Rect-ify": "2021/5.md"
+      - "<span class=s>2021-</span>6: Fischer Random Chess": "2021/6.md"
+      - "<span class=s>2021-</span>7: Can You Feel the Magic?": "2021/7.md"
+      - "<span class=s>2021-</span>8: Time to Make a Difference": "2021/8.md"
+      - "<span class=s>2021-</span>9: In the Long Run": "2021/9.md"
+      - "<span class=s>2021-</span>10: On the Right Side": "2021/10.md"
+    - 2022:
+      - "<span class=s>2022-</span>1: Counting DNA Nucleotides?": "2022/1.md"
+      - "<span class=s>2022-</span>2: Attack of the Mutations!": "2022/2.md"
+      - "<span class=s>2022-</span>3: Uniquely Qualified": "2022/3.md"
+      - "<span class=s>2022-</span>4: In the Long One...": "2022/4.md"
+      - "<span class=s>2022-</span>5: Stairway to Heaven": "2022/5.md"
+      - "<span class=s>2022-</span>6: Pyramid Scheme": "2022/6.md"
+      - "<span class=s>2022-</span>7: Just Golfing Around": "2022/7.md"
+      - "<span class=s>2022-</span>8: Let\u0027s Split!": "2022/8.md"
+      - "<span class=s>2022-</span>9: An Average Window (or a Windowed Average)": "2022/9.md"
+      - "<span class=s>2022-</span>10: Separation Anxiety": "2022/10.md"
+    - 2023:
+      - "<span class=s>2023-</span>1: Elimination Sort": "2023/1.md"
+      - "<span class=s>2023-</span>2: Put It In Reverse": "2023/2.md"
+      - "<span class=s>2023-</span>3: Caesar Salad": "2023/3.md"
+      - "<span class=s>2023-</span>4: Like a Version": "2023/4.md"
+      - "<span class=s>2023-</span>5: Risky Business": "2023/5.md"
+      - "<span class=s>2023-</span>6: Key/Value Pairs": "2023/6.md"
+      - "<span class=s>2023-</span>7: Let\u0027s Be Rational": "2023/7.md"
+      - "<span class=s>2023-</span>8: Critical Thinking": "2023/8.md"
+      - "<span class=s>2023-</span>9: Flipping Pairs": "2023/9.md"
+      - "<span class=s>2023-</span>10: Partition with a Twist": "2023/10.md"
