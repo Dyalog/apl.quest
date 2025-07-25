@@ -239,5 +239,6 @@ kbd {
 @media screen and (max-width:59.984375em) {
     .md-nav__source {
         color:unset;
+        background-color:unset;
     }
 }
