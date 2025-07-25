@@ -152,6 +152,7 @@ pre{
   font-size:0.8rem;
   padding:1ex;
   word-wrap:break-word;
+  text-align:center;
 }
 .ngn_lb b {
   cursor:pointer;
