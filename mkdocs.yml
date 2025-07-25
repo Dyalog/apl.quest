@@ -14,11 +14,6 @@ theme:
   custom_dir: overrides
   font: false
   palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: light 
@@ -34,7 +29,7 @@ theme:
       accent: custom
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Switch to light mode
 
 extra_css:
   - css/main.css
