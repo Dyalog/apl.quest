@@ -17,7 +17,10 @@ function run(expr, id) {
     let rc = +rx.exec(res)[0].replace("¯","-")  // Numeric Return Code
     let out = res.replace(/`[^`]+`/g,x=>'<code>'+x.split('`')[1]+'</code>').replace(/^(¯|[0-9])+\s+/,"");    
     let code = "<code>"+$("#"+id+"_Input").value.trim() +"</code>" 
-    out = out.replace(/^Submission/, code).replace(/^Result should have been/, code + " should have returned ")
+    out = out.replace(/^Submission/, "<big>😮</big> " + code)
+             .replace(/^Result should have been/, "<big>☹️</big> " + code + " should have returned ")
+             .replace(/^Passed all basic and edge/, "<big>😀</big> Passed all basic and edge")
+             .replace(/^Passed/, "<big>🙂</big> Passed")
     $("#"+id+"_Output").innerHTML = out
 	}
 }

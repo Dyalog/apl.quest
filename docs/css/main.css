@@ -85,6 +85,7 @@ pre{
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     padding-top: 2ex;
+    padding-left: 1em;
 }
 
 #p_Input {
@@ -110,6 +111,18 @@ pre{
 .pdiv .md-button {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+#p_Output {
+    text-align: center;
+    max-width: 80%;
+    margin: 2ex auto;
+    line-height: 2.75ex;
+}
+
+big {
+    font-size: xx-large;
+    vertical-align: middle;
 }
 
 .fi {
@@ -151,8 +164,10 @@ pre{
   cursor:default;
   font-size:0.8rem;
   padding:1ex;
-  word-wrap:break-word;
-  text-align:center;
+  justify-content:center;
+  user-select:none;
+  display:flex;
+  flex-wrap:wrap;
 }
 .ngn_lb b {
   cursor:pointer;
@@ -219,4 +234,10 @@ kbd {
 
 .mr {
     margin-right: 2em;
+}
+
+@media screen and (max-width:59.984375em) {
+    .md-nav__source {
+        color:unset;
+    }
 }

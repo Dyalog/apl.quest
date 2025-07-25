@@ -51,10 +51,8 @@ markdown_extensions:
     - toc:
         toc_depth : "1-1"
 nav:
-    - Home:
-      - "Intro": "index.md"
-      - "Help": "info/help.md"
-      - "Sample Problem": "info/sample.md"
+    - "Home": "index.md"
+    - "Sample Problem": "sample.md"
     - 2013:
       - "<span class=s>2013-</span>1: Seems a Bit Odd To Me": "2013/1.md"
       - "<span class=s>2013-</span>2: Making The Grade": "2013/2.md"
