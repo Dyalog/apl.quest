@@ -168,8 +168,21 @@ pre{
     position: relative;
 }
 
+.yt time {
+    position: absolute;
+    right: 1ex;
+    bottom: 1em;
+    display: block;
+    padding: 0 0.5ex 0.1ex 0.5ex;
+    border-radius: 0.5ex;
+    background: #0008;
+    color: #fff;
+    font-family: system-ui;
+}
+
 .yt img:last-child {
     position: absolute;
+    top: 0;
     left: 0;
     cursor: pointer;
     filter: grayscale(1)contrast(1.3);
