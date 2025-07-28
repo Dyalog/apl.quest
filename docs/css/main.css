@@ -64,6 +64,8 @@ pre{
   --md-accent-fg-color--transparent: #5e81ac1a;
   --md-accent-bg-color: #fff;
   --md-accent-bg-color--light: #fff;
+  
+  --md-typeset-a-color: #5e81ac;
 }
 
 [data-md-color-scheme="slate"] {
@@ -77,6 +79,8 @@ pre{
   --md-accent-bg-color: #fff;
   --md-accent-bg-color--light: #fff;
   --md-hue: 220; 
+  
+  --md-typeset-a-color: #88c0d0;
 }
 
 .pdiv code {
