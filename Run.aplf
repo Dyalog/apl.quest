@@ -54,7 +54,7 @@
              '<p id="p_Output"></p>'
              '## Solutions'
              '<div onclick="play(this)" title="Video on YouTube" class="yt">'
-             '<img alt="Video Thumbnail" src="../../img/',dash,'.png">'
+             '<img class="md-header--shadow" alt="Video Thumbnail" src="../../img/',dash,'.png">'
              '<time>',d,'</time>'
              '<img alt="YouTube" src="../../img/yt-big.png">'
              '</div>'
@@ -64,7 +64,7 @@
              '<script>'
              '    testCases=',1 ⎕JSON t
              '    p_Input.value=localStorage.getItem(window.location.pathname)'
-             '    play=e=>e.outerHTML=`<iframe src="https://www.youtube.com/embed/',('&'⎕R'?'⊢v),'&autoplay=1" title="',name,' (APL Quest ',dash,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`'
+             '    play=e=>e.outerHTML=`<iframe class="md-header--shadow" src="https://www.youtube.com/embed/',('&'⎕R'?'⊢v),'&autoplay=1" title="',name,' (APL Quest ',dash,')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`'
              '</script>'
          )
          p⊂⍛⎕NPUT(dir,'docs/',slash,'.md')1
