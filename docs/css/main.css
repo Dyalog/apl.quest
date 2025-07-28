@@ -65,7 +65,7 @@ pre{
   --md-accent-bg-color: #fff;
   --md-accent-bg-color--light: #fff;
   
-  --md-typeset-a-color: #5e81ac;
+  --md-typeset-a-color: #5e81ac!important;
 }
 
 [data-md-color-scheme="slate"] {
