@@ -220,7 +220,7 @@ kbd {
 
 .md-typeset a {
     color: inherit;
-    border-bottom: 0.25ex dotted #eceff4;
+    border-bottom: 0.25ex dotted currentColor;
 }
 
 .md-typeset a:hover, .md-typeset a:focus {
