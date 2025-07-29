@@ -1,0 +1,248 @@
+@font-face {
+  font-family:"Go";
+  src:url("../assets/Go-Regular.ttf")
+}
+@font-face {
+  font-family:"Go";
+  src:url("../assets/Go-Bold.ttf");
+  font-weight:bold
+}
+@font-face {
+  font-family:"Go";
+  src:url("../assets/Go-Italic.ttf");
+  font-style:italic
+}
+@font-face {
+  font-family:"Go Medium";
+  src:url("../assets/Go-Medium.ttf")
+}
+@font-face {
+  font-family:SAX2;
+  src:url("../assets/SAX2.ttf")
+}
+
+pre,
+code,
+.ngn_lb,
+.md-typeset code,
+.md-typeset a:hover code,
+#p_Input {
+  font-size: 1em;
+  -webkit-text-stroke:.05ex;
+  line-height:1.1em!important;
+  white-space:pre;
+  background-color: unset;
+}
+
+.ngn_lb, #p_Input {
+    font-family: SAX2;
+}
+
+pre{
+  overflow: auto;
+  max-width: 100vw;
+}
+
+.md-typeset code {
+    padding: 0.3em;
+}
+
+:root {
+  --md-text-font: "Go"; 
+}
+:root {
+  --md-code-font: "SAX2";
+}
+
+:root > * , [data-md-color-scheme="light"] {
+  color: #2e3440;
+  --md-primary-fg-color: #4c566a;
+  --md-default-bg-color: #eceff4;
+  --md-primary-fg-color--dark: #eceff4;
+
+  --md-accent-fg-color: #5e81ac;
+  --md-accent-fg-color--transparent: #5e81ac1a;
+  --md-accent-bg-color: #fff;
+  --md-accent-bg-color--light: #fff;
+  
+  --md-typeset-a-color: #5e81ac!important;
+}
+
+[data-md-color-scheme="slate"] {
+  color: #eceff4;
+  --md-primary-fg-color: #4c566a;
+  --md-default-bg-color: #2e3440;
+  --md-primary-fg-color--dark: #eceff4;
+  
+  --md-accent-fg-color: #5e81ac;
+  --md-accent-fg-color--transparent: #5e81ac1a;
+  --md-accent-bg-color: #fff;
+  --md-accent-bg-color--light: #fff;
+  --md-hue: 220; 
+  
+  --md-typeset-a-color: #88c0d0;
+}
+
+.pdiv code {
+    color: #eceff4;
+    background: var(--md-primary-fg-color);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-top: 2ex;
+    padding-left: 1em;
+}
+
+#p_Input {
+    background: #fff;
+    flex-grow: 1;
+    padding: 1ex;
+    border: 0.5ex solid transparent;
+}
+
+#p_Input:focus {
+    border-color: var(--md-accent-fg-color);
+}
+
+[data-md-color-scheme="slate"] #p_Input {
+    background: #000;
+}
+
+.pdiv {
+    display: inline-flex;
+    width: 100%;
+}
+
+.pdiv .md-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#p_Output {
+    text-align: center;
+    max-width: 80%;
+    margin: 2ex auto;
+    line-height: 2.75ex;
+}
+
+big {
+    font-size: xx-large;
+    vertical-align: middle;
+}
+
+.fi {
+    filter: grayscale(1)
+}
+[data-md-color-scheme="slate"] .fi {
+    filter: grayscale(1) invert(1);
+}
+
+.md-copyright {
+	width: 100%;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.md-sidebar--secondary {
+  display: none!important;
+}
+
+.s {
+    text-decoration: none;
+}
+
+.md-nav .s {
+    display: none;
+}
+
+.md-content {
+    margin-right: 0;
+}
+
+.ngn_lb {
+  cursor:default;
+  font-size:0.8rem;
+  padding:1ex;
+  justify-content:center;
+  user-select:none;
+  display:flex;
+  flex-wrap:wrap;
+}
+.ngn_lb b {
+  cursor:pointer;
+  padding:0.125rem;
+  font-weight:normal;
+  border-radius:0.125rem
+}
+.ngn_lb b:hover,
+.ngn_bq .ngn_lb {
+  background-color:#81a1c1
+}
+
+.yt {
+    position: relative;
+}
+
+.yt time {
+    position: absolute;
+    right: 1ex;
+    bottom: 1em;
+    display: block;
+    padding: 0 0.5ex 0.1ex 0.5ex;
+    border-radius: 0.5ex;
+    background: #0008;
+    color: #fff;
+    font-family: system-ui;
+}
+
+.yt img:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    filter: grayscale(1)contrast(1.3);
+    transition: filter 0.1s;
+}
+.yt img:last-child:hover {
+    filter: unset;
+}
+
+iframe {
+    width: 100%;
+    aspect-ratio: 1920 / 1080;
+}
+
+kbd {
+    font-family: unset;
+    font-weight: bold;
+}
+
+.md-typeset a {
+    color: inherit;
+    border-bottom: 0.25ex dotted currentColor;
+}
+
+.md-typeset a:hover, .md-typeset a:focus {
+    color: inherit;
+    border-bottom: 0.25ex solid currentColor;
+}
+
+.math {
+    font-family: serif;
+}
+
+.mr {
+    margin-right: 2em;
+}
+
+@media screen and (max-width:59.984375em) {
+    .md-nav__source {
+        color:unset;
+        background-color:unset;
+    }
+}
