@@ -1,5 +1,6 @@
  {toc}←{stop}Run args;y;i;p;name;src;dir;t;tests;ts;urls;us;u;_;chat;code;video;v;title;m;desc;slash;dash;url;durs;ds;d
  dir←⊃⊆args
+ dir,←'/'
  toc←0⍴⊂''
  urls←0 ⎕JSON⊃⎕NGET dir,'src/urls.json'
  durs←11 10⍴⊃⎕NGET(dir,'src/durs.txt')1
@@ -25,7 +26,7 @@
          (_ chat code video)←u
          p←'^(# )(\d+: )'⎕R('\1<span class=s>',y,'-</span>\2')⊢p
          name←2↓⊃p/⍨m←'# '∘(⊃⍷)¨p
-         desc←⊃'rite a[^.]+\.'⎕S'W&'⊢p
+         desc←⊃'rite a[^.]+\.'⎕S'W&'∊p,¨' '
          title←'</?span.*?>'⎕R''⊢name
          slash←y,'/',i
          dash←y,'-',i
