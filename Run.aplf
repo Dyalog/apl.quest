@@ -42,7 +42,7 @@
          p←(
              '---'
              'title: "APL Quest ',title,'"'
-             'description: "',desc,'"'
+             'description: "',(' "' '"'⎕R' “' '”'⊢desc),'"'
              'image: "https://apl.quest/img/',dash,'.png"'
              'url: "https://apl.quest/',slash,'"'
              '---'
