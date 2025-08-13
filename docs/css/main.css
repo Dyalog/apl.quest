@@ -240,6 +240,12 @@ kbd {
     margin-right: 2em;
 }
 
+.index h2 {
+    display: inline;
+    font-size: inherit;
+    font-weight: bold;
+}
+
 @media screen and (max-width:59.984375em) {
     .md-nav__source {
         color:unset;
