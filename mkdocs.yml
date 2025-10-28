@@ -2,7 +2,7 @@ site_name: APL Quest
 repo_url: https://github.com/dyalog/apl.quest
 repo_name: Dyalog/apl.quest
 dev_addr: 127.0.0.1:22361
-copyright: <div class="right">Contents copyright &copy; 2013-2025 <strong><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Ltd</a></strong></div>
+copyright: <div class="right"><span style="color:var(--md-footer-fg-color--lighter)">Contents copyright &copy; 2013-2025 </span><a href="https://dyalog.com" target="_blank" rel="noopener">Dyalog Ltd</a></div>
 
 theme:
   favicon: 'img/favicon.png'
