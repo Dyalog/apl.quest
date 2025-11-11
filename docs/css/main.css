@@ -186,6 +186,7 @@ big {
 
 .yt {
     position: relative;
+    cursor: pointer;
     & :is(div,time) {
         position: absolute;
         bottom: 1em;
@@ -198,6 +199,7 @@ big {
     }
     & div {
         left: 1ex;
+        z-index: 1;
     }
     & time {
         right: 1ex;
@@ -206,7 +208,6 @@ big {
         position: absolute;
         top: 0;
         left: 0;
-        cursor: pointer;
         filter: grayscale(1)contrast(1.3);
         transition: filter 0.1s;
         &:hover {
