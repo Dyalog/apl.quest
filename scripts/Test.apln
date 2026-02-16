@@ -1,0 +1,246 @@
+:Namespace Test ⍝ If you change this then update test.js to contain the result of Test.ExportJS
+    PS←⍬ ⍝ Problem Set data
+
+    ∇ (ok report)←{class}(data Run)(n expr)
+      ⍝ Use TIO to run competition submission against test cases
+     
+      ⍝ expr   character vector representing one-liner dfn or tacit function (braces/parens are optional)
+      ⍝
+      ⍝ n      number of problem that expr attempts to solve
+      ⍝
+      ⍝ data   namespace containing one namespace per problem. They must be named P1, P2, P3, etc.
+      ⍝        f  character vector representing a one-liner reference implementation
+      ⍝        a  vector of test cases - each element is a scalar for monadic F or a two element vector for dyadic F
+      ⍝        p  character vector representing one-liner post-processing to be tolerant of user submissions
+      ⍝        x  (optional) character scalar or vector with prohibited characters
+      ⍝
+      ⍝ class  if supplied, return properly escaped html and add that class to <code>
+      ⍝
+      ⍝ ok     return code:
+      ⍝        ¯710  timeout
+      ⍝        ¯315  internal error
+      ⍝        -n    errored with error number n
+      ⍝        0     failed basic tests
+      ⍝        1     passed basic tests but failed on one or more edge cases
+      ⍝        2     passed all tests
+      ⍝        99    expression was blank
+     
+      ;b;bs;ca;cb;respa;respb
+      ;script;line;x;y;tag;resp;defs;ans;em;a;as;p
+      ;code;proh
+     
+      :If ''≡expr~' ' ⍝ empty?
+          (ok report)←99 ''
+          :Return
+      :EndIf
+     
+      :If 900⌶⍬
+          Code←Rep
+      :Else
+          Code←class CodeTag Rep
+      :EndIf
+      :If ⍬≡ps←PS
+          :Trap 0
+              ps←PS←Load ⎕JSON⍣(''≡0⍴data)⊢data
+          :Else
+              (ok report)←¯315 'Internal error – '
+              report,←⎕DMX.Message
+              :Return
+          :EndTrap
+      :EndIf
+     
+      defs←n⊃ps
+     
+      :If ×defs.⎕NC'x'
+      :AndIf ×≢proh←defs.x∩expr
+          (ok report)←0 'Solution uses '
+          report,←'language-APL'CodeTag proh
+          report,←' which ','is' 'are'⊃⍨2⌊≢proh
+          report,←' prohibited for this problem'
+          :Return
+      :EndIf
+     
+      p←GetP defs
+      tag←⎕A[?8⍴26]
+     
+      a←''
+      :Trap 0
+          as←{⍎¨⊆a⊢←⍵}¨defs.a
+      :Else
+          (ok report)←¯315 'Internal error – '
+          report,←('language-APL'CodeTag a),' as test case ',Error ⎕EN
+          :Return
+      :EndTrap
+      b←''
+      :If 2=defs.⎕NC'b'
+          :Trap 0
+              bs←{⍎¨⊆a⊢←⍵}¨defs.b
+          :Else
+              (ok report)←¯315 'Internal error – '
+              report,←('language-APL'CodeTag b),' as edge case ',Error ⎕EN
+              :Return
+          :EndTrap
+      :Else
+          bs←⍬
+      :EndIf
+     
+      script←⊂'⎕TRAP←0 ''C'' ''''''',tag,''''',-⎕EN'''
+      :For a :In as
+          :Trap 0
+              ans←Rep defs.f On a
+          :Else
+              (ok report)←¯315 'Internal error – reference solution'
+              report,←(Error ⎕EN),' with ','language-APL'∘CodeTag Args a
+              :Return
+          :EndTrap
+          line←('''',tag,''',(',p,ans,')≡',p)(Norm expr)
+          line,¨←(2=≢a)1/∘Rep¨a
+          script,←,/line
+      :EndFor
+      :For b :In bs
+          :Trap 0
+              ans←Rep defs.f On b
+          :Else
+              (ok report)←¯315 'Internal error – reference solution'
+              report,←(Error ⎕EN),' with ',Code Args b
+              :Return
+          :EndTrap
+          line←('''',tag,''',2+(',p,ans,')≡',p)(Norm expr)
+          line,¨←(2=≢b)1/∘Rep¨b
+          script,←,/line
+      :EndFor
+     
+      resp←⊃,/1↓tag∘{0::⊂-⎕EN ⋄ (≢⍺)↓⍎⍵}¨script
+      (ca cb)←≢¨as bs
+      (respa respb)←ca(-cb)↑¨⊂resp
+      :If ¯710∊resp
+          (ok report)←¯710 'Request timed out'
+      :ElseIf resp≡ca cb/1 3
+          (ok report)←2 'Passed all basic and edge cases – good job!'
+      :ElseIf ∧/1=respa
+          ok←1
+          b←bs⊃⍨cb⌊1⍳⍨3≠respb
+          report←'Passed all basic tests – for extra points, consider cases like ',Code Args b
+          report,←' which should give ','language-APL'CodeTag Code defs.f On b
+      :ElseIf ∨/0≥respa
+          (a ok)←as respa⊃¨⍨ca⌊1⍳⍨1≠respa
+          :If 0=⌊/ok
+              report←'Result should have been ','language-APL'CodeTag defs.f On a
+          :Else
+              report←'Submission',Error ok
+          :EndIf
+          report,←' with ',Code Args a
+      :Else
+          (ok report)←¯911 'The test server''s response could not be parsed'
+      :EndIf
+    ∇
+
+      CodeTag←{
+          (,¨'^<&>$')⎕R('<code class="',⍺,'">')'\&lt;' '\&amp;' '\&gt;' '</code>',⍕⍵
+      }
+      Norm←{
+          code←⍵/⍨∧\('⍝'=⍵)⍲=\''''≠⍵
+          (l r)←'{}'⍴¨⍨'⍵'∊'\{[^{}]*\}'⎕R''⍣≡code
+          '(',l,code,r,')'
+      }
+      GetP←{
+          ×⍵.⎕NC'p':'{0::⍵ ⋄ (',⍵.p,') ⍵}'
+          '⊢'
+      }
+      Load←{
+          data←⎕JSON⍣(''≡0⍴⍵)⊢⍵
+          nl←'P'data.⎕NL ¯9
+          refs←data.⍎¨nl
+          nos←1+⍎¨'^P(\d+)'⎕S'\1'⊢nl
+          refs@nos ⎕JSON¨(⌈/nos,0)⍴⊂'{"a":[]}'
+      }
+      On←{
+          Fn←⍎⍺
+          2=≢⍵:⊃Fn/⍵
+          Fn⊃⍵
+      }
+      Parse←{
+          Trans←(≢⍺){⍎⍺⍺↓⍵.Match}
+          regex←'^',⍺,'( ¯?\d+)$'
+          0::¯710
+          regex ⎕S Trans ⍺⍺ ⍵
+      }
+      Args←{
+          val←-≢⍵
+          ∊val↑' as left argument and ' ' as right argument',⍨∘{'language-APL'CodeTag ⍵}∘⍺⍺¨⍵
+      }
+      Error←{
+          ' caused ','language-APL'CodeTag ⎕EM|⍵
+      }
+      Rep←{             ⍝ String representation of object V0.34
+⍝ Optional left arg: parenthesise if needed to isolate expression in context
+          P←'(',')',⍨⍕
+          {
+              P⍣(')('≢¯2↑1⌽⍵)⊢⍵
+          }{
+              s←⍵/⍨~≠\''''=⍵ ⍝ remove strings
+              p←s/⍨0=+\-⌿'()'∘.=s ⍝ remove parens
+              b←p/⍨0=+\-⌿'[]'∘.=p ⍝ remove brackets
+              ∨/'⊂,⍴+-×/⍳'∊p:P ⍵ ⍝ if expression; parenthesise
+              ⍵
+          }{
+⍝ This version accounts for ⎕TC type characters
+         ⍝ Recognise some constants:
+              ⍵≡⍬:'⍬' ⋄ ⍵≡'':'''''' ⋄ ⍵≡⎕NULL:'⎕NULL'
+              ⍵≡⎕D:'⎕D' ⋄ ⍵≡⎕A:'⎕A' ⋄ ⍵≡⎕Á:'⎕Á' ⋄ ⍵≡⎕AV:'⎕AV'
+              scal←0∊rank←+/⍴s←⍴⍵ ⋄ char←>/(simple num)←∧\~(10|⎕DR 1/⍵)∊¨6(0 2)
+         ⍝ Refs should normally not be displayed. To allow remove set ⍺[2] to 1
+              ⍺←0              ⍝ recursive call?
+              (rc ref)←2↑⍺
+              or←scal∧1=≡R←⍵   ⍝ normally no funny objects like ⎕ORs
+              or∨9=⎕NC'R':ref{⍵⊣÷⍺}⍕⍵     ⍝ display refs as they are
+     
+⍝ Reduce object to 1 item if all same elements
+              mod←(0<rank)∧(n=0)∨(5×char)<n←×/s
+              mod←mod∧as←char{0∊⍴⍵:1 ⋄ ⍵∧.≡1↑⍵}obj←,⍵ ⍝ as: all the same
+              obj←mod{16::⊂'[ref]' ⋄ 1(↑⍣⍺)⍵}obj  ⍝ take only 1st? (grab prototype if empty)
+              shape←mod{⍵≡,1:',' ⋄ (⍺∨1<⍴⍵)/'⍴',⍨⍕⍵}s
+              shape←shape,(encl←simple<as)⍴'⊂'
+     
+⍝ Simple scalars and char vector≠⍴1 do not need parens
+              parens←rc∧simple≤(0<⍴shape)∨(rank=1)∧num∨∨/(4↑⎕AV)∊⍵
+              (lp rp)←parens⍴¨'()'
+              Paren←{>/'⎕' 'ADÁN'∊¨⍨2↑⍵:P ⍵ ⋄ ⍵} ⍝ Parenthesise complex expressions
+              ~simple:rp,⍨lp,shape,encl{⍺⍲'('=1↑⍵:⍵ ⋄ 1↓¯1↓⍵}1↓⊃,/' ',¨Paren¨1 ref∘∇¨obj
+     
+⍝ Simple objects (char should account for ⎕TC chars et al.)
+              ⎕PP←17 ⍝ for numbers
+     
+              numv←{⎕CT←⎕IO←0 ⋄ ∨/e←(0∊s),⍬≡⍴⍵:⍕e/'⍬',1↑⍵ ⋄ ⍕⍵}
+     
+              obj←shape,num ⍺{1↑⍺:numv ⍵ ⋄ ⎕ML←1 ⋄ ⎕IO←0 ⋄ QU←{Q,((1+t=Q)/t←⍵),Q←''''}
+          ⍝ We have to assume not all characters are available. Those should be:
+                  Always←⎕A,⎕D,'abcdefghijklmnopqrstuvwxyz_.,:;%!"/=\-+''#$£¢^¿¡(){}[]§@`∣¶&'
+                  Always,←'ÁÂÃÇÈÊËÌÍÎÏÐÒÓÔÕÙÚÛÝþãìðòõÀÄÅÆÉÑÖØÜßàáâäåæçèéêëíîïñùúûüóôöø'
+                  Always,←'≤≥⌿⍀<>≠∨∧÷×?∊⍴~↑↓⍳○*⌈⌷¨⌊∇∆⍙⍨∘⊂⊃∩∪⊥⊤⌶|⍺⍵¯⍬⍱⍲⍒⍋⍉⌽⊖⍟⌹⍕⍎⍫⍪≡≢⍷⋄←→⍝⎕⍞⍣ '
+                  Always,←'⊢⊣',⎕UCS 8838 9016 9018 9056 9060 9080/⍨80=⎕DR'' ⍝ ⊂_ ⎕= ⎕⋄ ⎕: ∘¨ ⍳_
+                  ∧/t←⍵∊Always:QU ⍵ ⍝ no special chars?
+            ⍝ If only a few chars transform the whole string into ⎕AV
+                  UCS←{1⌽')(⎕UCS ',⍕numv ⎕UCS ⍵}
+            ⍝ More than a few; create a mixture of ⎕UCS and 'quotes'
+                  minsize←3 ⍝ how much special chars to include between sections; that number is subjective
+                  c∨←minsize>∊⍴¨c←ucs⊂⍨c←1,1↓ucs≠¯1⌽ucs←~t ⍝ consider small groups of ASCII as UCS
+             ⍝ ∧/sc←∊c:ucs ⍵ ⍝ are the pieces small enough to be all in ⎕UCS?
+                  (lp rp)←'()'/⍨¨(1↓⍺)∧1<+/c←1,1↓ucs≠¯1⌽ucs←∊c
+                  rp,⍨lp,∊{⍺,',',⍵}/(c/ucs){⍺:UCS ⍵ ⋄ QU ⍵}¨c⊂⍵
+              }obj
+              lp,obj,rp
+          }⍵
+      }
+
+    ∇ js←ExportJS;bin;nl
+      bin←⊃⌽2(219⌶)1(220⌶)⎕THIS   ⍝ Serialised namespace
+      nl←⎕UCS 10
+      js←'// This is generated by Test.ExportJS in lib/Test.apln',nl
+      js,←'let tns = `T←⍬',nl
+      js,←∊('T,←'∘,∘⍕¨((≢bin)⍴150↑1)⊂bin),¨nl
+      js,←'`',nl
+      js,←'let importTestNS = "Test←0(220⌶)¯2(219⌶)T"'
+    ∇
+
+:EndNamespace
