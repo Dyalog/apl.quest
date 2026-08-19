@@ -1,4 +1,10 @@
-:Namespace Test ⍝ If you change this then update test.js to contain the result of Test.ExportJS
+:Namespace Test ⍝ Canonical/readable source of the submission-checking harness.
+⍝ The live site no longer runs this namespace. Submissions are now checked on
+⍝ TryAPL (https://tryapl.org) by scripts/dyalog-run.js, which carries a dfn port
+⍝ of Run emitting the same "<returnCode> <message>" report. TryAPL's sandbox
+⍝ cannot ⎕FX/⎕FIX a tradfn/namespace, nor deserialise one (219⌶/220⌶), so the
+⍝ old serialise-to-test.js path (Test.ExportJS below) is retired. Keep this file
+⍝ as the reference for the algorithm; re-port dyalog-run.js by hand if you edit it.
     PS←⍬ ⍝ Problem Set data
 
     ∇ (ok report)←{class}(data Run)(n expr)
