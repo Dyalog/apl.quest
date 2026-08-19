@@ -37,8 +37,6 @@ extra_css:
 extra_javascript:
   - scripts/dyalog-run.js
   - scripts/lb.js
-  - scripts/msgpack.min.js
-  - scripts/test.js
   - scripts/matomo.js
   - scripts/track-test-buttons.js
 
